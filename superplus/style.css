@@ -1,0 +1,396 @@
+/*
+Theme Name: Superplus
+Theme URI: https://github.com/teknologvolkanozdemir/wordpress-super-plus-themes
+Author: Volkan Özdemir
+Description: Klasik PHP şablonlu, widget alanlarıyla genişletilebilir, WCAG 2.1 AA uyumlu tema.
+Version: 1.0.0
+Requires at least: 5.8
+Requires PHP: 7.4
+License: GNU General Public License v2 or later
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: superplus
+*/
+
+:root {
+	--sp-text: #1a1a1a;
+	--sp-bg: #ffffff;
+	--sp-muted-bg: #f3f4f6;
+	--sp-link: #0b4aa2;
+	--sp-focus: #ffbf00;
+	--sp-focus-inner: #000000;
+	--sp-border: #c9ced6;
+	--sp-dark: #111827;
+	--sp-dark-text: #f9fafb;
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+html {
+	font-size: 100%;
+	-webkit-text-size-adjust: 100%;
+}
+
+body {
+	margin: 0;
+	background: var(--sp-bg);
+	color: var(--sp-text);
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+	font-size: 1rem;
+	line-height: 1.6;
+}
+
+img,
+video,
+iframe {
+	max-width: 100%;
+	height: auto;
+}
+
+a {
+	color: var(--sp-link);
+	text-decoration: underline;
+}
+
+a:hover {
+	text-decoration-thickness: 2px;
+}
+
+a:focus,
+a:focus-visible,
+button:focus,
+button:focus-visible,
+input:focus,
+input:focus-visible,
+select:focus,
+select:focus-visible,
+textarea:focus,
+textarea:focus-visible,
+summary:focus,
+summary:focus-visible,
+[tabindex]:focus,
+[tabindex]:focus-visible {
+	outline: 3px solid var(--sp-focus-inner);
+	outline-offset: 2px;
+	box-shadow: 0 0 0 5px var(--sp-focus);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	line-height: 1.25;
+	margin: 0 0 0.75rem;
+}
+
+p {
+	margin: 0 0 1rem;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="url"],
+input[type="password"],
+input[type="search"],
+input[type="number"],
+input[type="tel"],
+textarea,
+select {
+	width: 100%;
+	max-width: 100%;
+	padding: 0.5rem 0.75rem;
+	border: 2px solid #4b5563;
+	border-radius: 3px;
+	background: #ffffff;
+	color: var(--sp-text);
+	font: inherit;
+}
+
+button,
+input[type="submit"],
+input[type="button"],
+input[type="reset"] {
+	padding: 0.5rem 1rem;
+	border: 2px solid var(--sp-link);
+	border-radius: 3px;
+	background: var(--sp-link);
+	color: #ffffff;
+	font: inherit;
+	cursor: pointer;
+}
+
+.screen-reader-text {
+	border: 0;
+	clip: rect(1px, 1px, 1px, 1px);
+	clip-path: inset(50%);
+	height: 1px;
+	margin: -1px;
+	overflow: hidden;
+	padding: 0;
+	position: absolute;
+	width: 1px;
+	word-wrap: normal !important;
+}
+
+.screen-reader-text:focus {
+	background-color: #ffffff;
+	border-radius: 3px;
+	clip: auto !important;
+	clip-path: none;
+	color: #000000;
+	display: block;
+	font-size: 1rem;
+	font-weight: 700;
+	height: auto;
+	left: 6px;
+	line-height: normal;
+	padding: 15px 23px 14px;
+	text-decoration: none;
+	top: 7px;
+	width: auto;
+	z-index: 100000;
+}
+
+.skip-link:focus {
+	outline: 3px solid var(--sp-focus-inner);
+	box-shadow: 0 0 0 6px var(--sp-focus);
+}
+
+.site-container {
+	width: 100%;
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 0 1rem;
+}
+
+.header-top {
+	background: var(--sp-dark);
+	color: var(--sp-dark-text);
+	padding: 0.5rem 0;
+	font-size: 0.875rem;
+}
+
+.header-top a {
+	color: #ffffff;
+}
+
+.site-header {
+	border-bottom: 1px solid var(--sp-border);
+	padding: 1rem 0;
+}
+
+.site-header-inner {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: space-between;
+	gap: 1rem;
+}
+
+.site-title {
+	margin: 0;
+	font-size: 1.75rem;
+}
+
+.site-title a {
+	color: var(--sp-text);
+	text-decoration: none;
+}
+
+.site-description {
+	margin: 0;
+	color: #374151;
+}
+
+.header-right {
+	margin-left: auto;
+}
+
+.main-navigation {
+	background: var(--sp-muted-bg);
+	border-bottom: 1px solid var(--sp-border);
+}
+
+.main-navigation ul,
+.footer-navigation ul {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.25rem 1rem;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.main-navigation a {
+	display: block;
+	padding: 0.75rem 0.5rem;
+	color: var(--sp-text);
+	font-weight: 600;
+	text-decoration: none;
+}
+
+.main-navigation a:hover,
+.main-navigation .current-menu-item > a {
+	text-decoration: underline;
+}
+
+.site-body {
+	display: grid;
+	grid-template-columns: minmax(0, 1fr);
+	gap: 2rem;
+	padding: 2rem 0;
+}
+
+.site-body.has-sidebar {
+	grid-template-columns: minmax(0, 1fr) 300px;
+}
+
+.content-column {
+	min-width: 0;
+}
+
+.before-content,
+.after-content {
+	margin-bottom: 2rem;
+}
+
+.after-content {
+	margin: 2rem 0 0;
+}
+
+.entry {
+	margin-bottom: 2.5rem;
+}
+
+.entry-title a {
+	color: var(--sp-text);
+}
+
+.entry-meta {
+	color: #374151;
+	font-size: 0.875rem;
+	margin-bottom: 1rem;
+}
+
+.post-thumbnail {
+	margin-bottom: 1rem;
+}
+
+.widget {
+	margin-bottom: 1.5rem;
+}
+
+.widget-title {
+	font-size: 1.125rem;
+	margin-bottom: 0.5rem;
+}
+
+.widget ul {
+	margin: 0;
+	padding-left: 1.25rem;
+}
+
+.pagination,
+.post-navigation .nav-links {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 1rem;
+	justify-content: space-between;
+	margin-top: 2rem;
+}
+
+.page-numbers {
+	display: inline-block;
+	padding: 0.25rem 0.75rem;
+	border: 1px solid var(--sp-border);
+}
+
+.page-numbers.current {
+	background: var(--sp-dark);
+	color: #ffffff;
+}
+
+.alignleft {
+	float: left;
+	margin: 0 1rem 1rem 0;
+}
+
+.alignright {
+	float: right;
+	margin: 0 0 1rem 1rem;
+}
+
+.aligncenter {
+	display: block;
+	margin: 0 auto 1rem;
+}
+
+.wp-caption,
+.gallery-caption {
+	max-width: 100%;
+	font-size: 0.875rem;
+}
+
+.wp-caption-text {
+	color: #374151;
+}
+
+.site-footer {
+	background: var(--sp-dark);
+	color: var(--sp-dark-text);
+}
+
+.site-footer a {
+	color: #ffffff;
+}
+
+.footer-widgets {
+	display: grid;
+	grid-template-columns: repeat(4, minmax(0, 1fr));
+	gap: 2rem;
+	padding: 2.5rem 0;
+}
+
+.footer-navigation {
+	border-top: 1px solid #4b5563;
+	padding: 1rem 0;
+}
+
+.footer-bottom {
+	border-top: 1px solid #4b5563;
+	padding: 1rem 0;
+	font-size: 0.875rem;
+}
+
+.comments-area {
+	margin-top: 2rem;
+}
+
+@media (max-width: 960px) {
+	.site-body.has-sidebar {
+		grid-template-columns: minmax(0, 1fr);
+	}
+
+	.footer-widgets {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+}
+
+@media (max-width: 600px) {
+	.footer-widgets {
+		grid-template-columns: minmax(0, 1fr);
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	* {
+		animation-duration: 0.01ms !important;
+		transition-duration: 0.01ms !important;
+		scroll-behavior: auto !important;
+	}
+}
